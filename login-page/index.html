@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>ApexAuth — Next-Gen Secure Authentication</title>
 
     <!-- Tailwind CSS CDN -->
@@ -26,6 +29,10 @@
                 700: "#1d4ed8",
                 900: "#1e3a8a",
               },
+              royal: {
+                bg: "#f8fafc",
+                card: "#ffffff",
+              },
             },
             keyframes: {
               float: {
@@ -33,13 +40,16 @@
                 "50%": { transform: "translateY(-10px)" },
               },
               fadeIn: {
-                "0%": { opacity: "0", transform: "scale(0.95)" },
-                "100%": { opacity: "1", transform: "scale(1)" },
+                "0%": {
+                  opacity: "0",
+                  transform: "scale(0.96) translateY(8px)",
+                },
+                "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
               },
             },
             animation: {
               float: "float 6s ease-in-out infinite",
-              fadeIn: "fadeIn 0.4s ease-out forwards",
+              fadeIn: "fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
             },
           },
         },
@@ -50,46 +60,46 @@
     <script src="app.js" defer></script>
   </head>
   <body
-    class="bg-gradient-to-br from-slate-50 via-white to-blue-50/50 text-slate-800 min-h-screen font-sans antialiased selection:bg-blue-600 selection:text-white flex items-center justify-center p-4 relative overflow-hidden"
+    class="bg-slate-50 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50/60 text-slate-800 min-h-screen min-h-[100dvh] font-sans antialiased selection:bg-blue-600 selection:text-white flex items-center justify-center p-4 sm:p-6 md:p-8 relative overflow-x-hidden"
   >
-    <!-- Ambient Glowing Background Orbs (Royal Blue & Soft Indigo Tint) -->
+    <!-- Responsive Ambient Glowing Background Orbs -->
     <div
-      class="absolute -top-32 -left-32 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl animate-float pointer-events-none"
+      class="absolute -top-24 sm:-top-32 -left-24 sm:-left-32 w-72 sm:w-96 h-72 sm:h-96 bg-blue-200/40 rounded-full blur-2xl sm:blur-3xl animate-float pointer-events-none"
     ></div>
     <div
-      class="absolute -bottom-32 -right-32 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-float pointer-events-none"
+      class="absolute -bottom-24 sm:-bottom-32 -right-24 sm:-right-32 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-200/30 rounded-full blur-2xl sm:blur-3xl animate-float pointer-events-none"
       style="animation-delay: -3s"
     ></div>
 
-    <!-- Login Card Container (Royal White Glassmorphism) -->
+    <!-- Login Card Container (Mobile Responsive Royal White Glassmorphism) -->
     <main
-      class="w-full max-w-md bg-white/80 backdrop-blur-2xl border border-slate-200/80 rounded-2xl shadow-xl shadow-slate-200/60 p-8 relative z-10 animate-fadeIn"
+      class="w-full max-w-md bg-white/90 sm:bg-white/80 backdrop-blur-2xl border border-slate-200/80 rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/50 p-6 sm:p-8 my-auto relative z-10 animate-fadeIn"
     >
       <!-- Header -->
-      <div class="text-center mb-8">
+      <div class="text-center mb-6 sm:mb-8">
         <div
-          class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 mb-3 shadow-sm"
+          class="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 mb-3 shadow-sm"
         >
-          <i data-lucide="shield-check" class="w-6 h-6"></i>
+          <i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </div>
-        <h1 class="text-2xl font-bold tracking-tight text-slate-900">
+        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
           Welcome back
         </h1>
-        <p class="text-sm text-slate-500 mt-1">
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
           Sign in to your
           <span class="text-blue-600 font-semibold">ApexAuth</span> account
         </p>
       </div>
 
       <!-- Social Sign In Buttons -->
-      <div class="grid grid-cols-2 gap-3 mb-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6">
         <!-- GitHub Button -->
         <button
           type="button"
-          class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-sm font-medium transition-all duration-200 active:scale-[0.98] shadow-sm"
+          class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.98] shadow-sm"
         >
           <svg
-            class="w-4 h-4 fill-slate-800"
+            class="w-4 h-4 fill-slate-800 shrink-0"
             viewBox="0 0 24 24"
             aria-hidden="true"
           >
@@ -105,9 +115,9 @@
         <!-- Google Button -->
         <button
           type="button"
-          class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-sm font-medium transition-all duration-200 active:scale-[0.98] shadow-sm"
+          class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs sm:text-sm font-medium transition-all duration-200 active:scale-[0.98] shadow-sm"
         >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path
               fill="#4285F4"
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -130,11 +140,13 @@
       </div>
 
       <!-- Divider -->
-      <div class="relative my-6">
+      <div class="relative my-5 sm:my-6">
         <div class="absolute inset-0 flex items-center">
           <div class="w-full border-t border-slate-200"></div>
         </div>
-        <div class="relative flex justify-center text-xs uppercase">
+        <div
+          class="relative flex justify-center text-[10px] sm:text-xs uppercase tracking-wider"
+        >
           <span class="bg-white/90 px-3 text-slate-400 font-medium"
             >Or continue with</span
           >
@@ -147,7 +159,7 @@
         <div>
           <label
             for="email"
-            class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2"
+            class="block text-[11px] sm:text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5 sm:mb-2"
             >Work Email</label
           >
           <div class="relative">
@@ -161,7 +173,7 @@
               id="email"
               required
               placeholder="alex@company.com"
-              class="w-full pl-10 pr-4 py-2.5 bg-slate-50/80 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-blue-600 focus:ring-4 focus:ring-blue-500/10 text-sm transition-all duration-200"
+              class="w-full pl-10 pr-4 py-2.5 bg-slate-50/80 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-blue-600 focus:ring-4 focus:ring-blue-500/10 text-xs sm:text-sm transition-all duration-200"
             />
           </div>
           <p id="emailError" class="text-xs text-rose-500 mt-1 hidden">
@@ -171,10 +183,10 @@
 
         <!-- Password Input -->
         <div>
-          <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center justify-between mb-1.5 sm:mb-2">
             <label
               for="password"
-              class="block text-xs font-semibold text-slate-600 uppercase tracking-wider"
+              class="block text-[11px] sm:text-xs font-semibold text-slate-600 uppercase tracking-wider"
               >Password</label
             >
             <a
@@ -194,7 +206,7 @@
               id="password"
               required
               placeholder="••••••••••••"
-              class="w-full pl-10 pr-10 py-2.5 bg-slate-50/80 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-blue-600 focus:ring-4 focus:ring-blue-500/10 text-sm transition-all duration-200"
+              class="w-full pl-10 pr-10 py-2.5 bg-slate-50/80 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-blue-600 focus:ring-4 focus:ring-blue-500/10 text-xs sm:text-sm transition-all duration-200"
             />
             <button
               type="button"
@@ -219,7 +231,7 @@
           />
           <label
             for="remember"
-            class="ml-2 text-sm text-slate-600 cursor-pointer select-none"
+            class="ml-2 text-xs sm:text-sm text-slate-600 cursor-pointer select-none"
             >Remember this device for 30 days</label
           >
         </div>
@@ -228,7 +240,7 @@
         <button
           type="submit"
           id="submitBtn"
-          class="w-full mt-2 py-3 px-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold rounded-xl shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.99] disabled:opacity-50"
+          class="w-full mt-2 py-3 px-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs sm:text-sm font-semibold rounded-xl shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.99] disabled:opacity-50"
         >
           <span>Sign In</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -236,7 +248,7 @@
       </form>
 
       <!-- Sign Up Redirect -->
-      <p class="text-center text-sm text-slate-500 mt-6">
+      <p class="text-center text-xs sm:text-sm text-slate-500 mt-5 sm:mt-6">
         Don't have an account?
         <a
           href="#"
